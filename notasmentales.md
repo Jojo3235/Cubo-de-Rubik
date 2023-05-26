@@ -13,4 +13,6 @@ Para el cubo:
 Mantener posiciones estaticas, y cambiar la informacion de las piezas numeradas, es decir, las piezas seran numeradas respecto a los centros
 rehacer enumeracion del esquema de papel y poner los centros como 1 - 6, el resto como posiciones estaticas tmb
 
-random.choice
+random.choice ("U", "D", "R", "L", "F", "B")
+
+Pensar en orientacion de las piezas
