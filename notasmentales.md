@@ -16,3 +16,5 @@ rehacer enumeracion del esquema de papel y poner los centros como 1 - 6, el rest
 random.choice ("U", "D", "R", "L", "F", "B")
 
 Pensar en orientacion de las piezas
+
+Pensar en usar el numero de dios -> ya esta fijo en 20, comprobado
