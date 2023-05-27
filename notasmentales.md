@@ -1,3 +1,17 @@
+Para el desarrollo de la clase cubo, pensar en un tensor 3x3x3, piensa que estan orientados
+
+Los giros, comprobar la capa y aplicar las transformaciones, ver cuaderno
+
+Las esquinas tienen 24 posibles configuraciones respecto a los ejes, teniendo en consideracion colores 
+
+Las aristas tienen 24 posibles configuraciones respecto a los ejes, teniendo en consideracion colores
+
+aunque no se pueden tomar todas las configuraciones siempre, esto no dara problemas, ya que la configuracion se cambiara automaticamente, lo que hará que solo haya posiciones posibles en el cubo
+
+rotaciones mirar video de codebullet o plantearlo por ti mismo desgraciado, plantearlo solo por capas arriba medio abajo maybe, luego ya ves para los movimientos en otras dimensiones
+
+setear una capa arriba
+
 Pensar por grafos, aunque sera complicado ya que 43 quintillones :p
 
 Pensar analisis por caras y posiciones relativas
