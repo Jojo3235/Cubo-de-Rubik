@@ -10,46 +10,45 @@ class Pieza(object):
         self.colores = [color1, color2, color3, color4, color5, color6]
         
     def __str__(self):
-        respuesta = f"{self.tipo} "
+        respuesta = f"Pieza: {self.tipo}, Colores: "
         for color in self.colores:
             if color != None:
                 respuesta += f"{color} "
         return respuesta
 
+
+# Falta añadir la orientación de las piezas, para las aristas mete 0 o 1, para las esquinas 0, 1 o 2, centros no metas, ya que son invariantes y nucleo idem
 class Esquina(Pieza):
     def __init__(self, color1, color2, color3, pos):
-        super(Esquina, self).__init__("Esquina", pos)
-        self.color1 = color1
-        self.color2 = color2
-        self.color3 = color3
+        super(Esquina, self).__init__("Esquina", color1, color2, color3, None, None, None)
+        self.pos = pos
 
     def __str__(self):
-        return self.tipo + str(self.pos) + " " + self.color1 + " " + self.color2 + " " + self.color3
+        return f"{self.tipo} {self.pos} {self.color1} {self.color2} {self.color3}"
     
 class Centro(Pieza):
     def __init__(self, color1, pos):
-        super(Centro, self).__init__("Centro", pos)
-        self.color1 = color1
+        super(Centro, self).__init__("Centro", color1, None, None, None, None, None)
+        self.pos = pos
 
     def __str__(self):
-        return self.tipo + str(self.pos) + " " + self.color1
+        return f"{self.tipo} {self.pos} {self.color1}"
     
 class Arista(Pieza):
     def __init__(self, color1, color2, pos):
-        super(Arista, self).__init__("Arista", pos)
-        self.color1 = color1
-        self.color2 = color2
+        super(Arista, self).__init__("Arista", color1, color2, None, None, None, None)
+        self.pos = pos
 
     def __str__(self):
-        return self.tipo + str(self.pos) + " " + self.color1 + " " + self.color2
+        return f"{self.tipo} {self.pos} {self.color1} {self.color2}"
     
 class Nucleo(Pieza):
-    def __init__(self, color1, pos):
-        super(Nucleo, self).__init__("Nucleo", pos)
-        self.color1 = color1
+    def __init__(self, pos):
+        super(Nucleo, self).__init__("Nucleo", None, None, None, None, None, None)
+        self.pos = pos
 
     def __str__(self):
-        return self.tipo + str(self.pos) + " " + self.color1
+        return f"{self.tipo} {self.pos} {self.color1}"
 
 class Cubo(object):
     def __init__(self):
@@ -75,6 +74,22 @@ class Cubo(object):
         self.capa_sup = []
         self.capa_mid = []
         self.capa_inf = []
+
+        self.capa_sup.append([Esquina("Blanco", "Azul", "Rojo", 0), Arista("Blanco", "Azul", 1), Esquina("Blanco", "Naranja", "Azul", 2)])
+        self.capa_sup.append([Arista("Blanco", "Rojo", 3), Centro("Blanco", 4), Arista("Blanco", "Verde", 5)])
+        self.capa_sup.append([Esquina("Blanco", "Verde", "Naranja", 6), Arista("Blanco", "Naranja", 7), Esquina("Blanco", "Rojo", "Verde", 8)])
+
+        self.capa_mid.append([Arista("Rojo", "Azul", 9), Centro("Azul", 10), Arista("Naranja", "Azul", 11)])
+        self.capa_mid.append([Centro("Rojo", 12), Nucleo(13), Centro("Verde", 14)])
+        self.capa_mid.append([Arista("Verde", "Rojo", 15), Centro("Naranja", 16), Arista("Azul", "Naranja", 17)])
+
+        self.capa_inf.append([Esquina("Amarillo", "Azul", "Rojo", 18), Arista("Amarillo", "Rojo", 19), Esquina("Amarillo", "Naranja", "Azul", 20)])
+        self.capa_inf.append([Arista("Amarillo", "Verde", 21), Centro("Amarillo", 22), Arista("Amarillo", "Azul", 23)])
+        self.capa_inf.append([Esquina("Amarillo", "Verde", "Naranja", 24), Arista("Amarillo", "Naranja", 25), Esquina("Amarillo", "Rojo", "Verde", 26)])
+
+        self.esquinas = []
+        self.centros = []
+        self.aristas = []
 
         self.aristas.append(Arista("Blanco", "Azul", 0))
         self.aristas.append(Arista("Blanco", "Rojo", 1))
@@ -127,6 +142,26 @@ class Cubo(object):
     def __repr__(self):
         return str(self.esquinas) + "\n" + str(self.centros) + "\n" + str(self.aristas)
     
+    def capa_superior(self):
+        return self.capa_sup
+    
+    def capa_media(self):
+        return self.capa_mid
+    
+    def capa_inferior(self):
+        return self.capa_inf
+    
+    def piezas(self):
+        return self.matriz_de_piezas
+    
+
+cubo = Cubo()
+
+print(cubo.capa_superior())
+
+pieza = Pieza("Arista", "Blanco", "Azul", "Rojo", 0)
+
+print(pieza)
     
 # esquinas = []
 # centros = []

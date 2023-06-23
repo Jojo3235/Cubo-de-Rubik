@@ -1,6 +1,6 @@
 Para el desarrollo de la clase cubo, pensar en un tensor 3x3x3, piensa que estan orientados
 
-Los giros, comprobar la capa y aplicar las transformaciones, ver cuaderno
+Los giros, comprobar la capa y aplicar las transformaciones, ver cuaderno, para funcion esta resuelto, compararlo con un cubo auxiliar resuelto o, en caso de que no detecte permutaciones en los ejes, comprobar que todas las caras esten llenas del mismo color
 
 Las esquinas tienen 24 posibles configuraciones respecto a los ejes, teniendo en consideracion colores 
 
